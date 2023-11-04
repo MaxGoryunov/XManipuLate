@@ -33,3 +33,6 @@
 
 # Visual Studio files
 *.vcxproj*
+
+# Built files
+Debug/
