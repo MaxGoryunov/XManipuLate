@@ -23,5 +23,5 @@ string Tag::asText(int depth) {
 }
 
 void Tag::print(int depth) {
-	
+	cout << this->asText(depth) << endl;
 }
