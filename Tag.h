@@ -18,7 +18,7 @@ private:
 	vup<Tag> children;
 public:
 	Tag(std::string const& name, int data) : name(name), data(data) {};
-	void push(up<Tag> child) { this->children.push_back(std::move(child)); }
-	void multipush(vup<Tag> arrived);
+	void push(std::unique_ptr<Tag> child) { this->children.push_back(std::move(child)); }
+	void multipush(std::vector<std::unique_ptr<Tag>> arrived);
 	std::string asText(int depth = 0);
 };
