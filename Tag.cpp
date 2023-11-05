@@ -6,12 +6,16 @@ using std::endl;
 using std::to_string;
 using std::string;
 using std::ofstream;
+using std::vector;
+using std::unique_ptr;
+using std::make_unique;
+using std::make_move_iterator;
 
-void Tag::multipush(vup<Tag> arrived) {
+void Tag::multipush(vector<unique_ptr<Tag>> arrived) {
 	this->children.insert(
 		this->children.end(),
-		std::make_move_iterator(arrived.begin()),
-		std::make_move_iterator(arrived.end())
+		make_move_iterator(arrived.begin()),
+		make_move_iterator(arrived.end())
 	);
 }
 
@@ -22,4 +26,10 @@ string Tag::asText(int depth) {
 		text += child->asText(depth + Tag::DEPTH_SHIFT);
 	}
 	return text + offset + "</" + this->name + ">\n";
+}
+
+void Tag::pushChildrenToQueue(std::queue<QueueTag>& tags) {
+	for (int i = 0; i < this->children.size(); ++i) {
+		tags.push(QueueTag(this->children[i].get(), this));
+	}
 }

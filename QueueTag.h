@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Tag.h"
+class Tag;
 
+#include "Tag.h"
 /*
 * Usage of raw pointers instead of unique or shared pointers is justified by
 * the fact that this class's fields(tag and parent) do not represent possession
