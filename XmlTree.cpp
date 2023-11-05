@@ -29,11 +29,12 @@ void XmlTree::load(ifstream& file) {
 	stack<up<Tag>> st;
 	while (getline(file, line)) {
 		if (line[1] != '/') {
-			up<Tag> cur = make_unique<Tag>(
-				line.substr(1, line.find('>') - 1),
-				stoi(line.substr(line.find('=') + 1))
+			st.push(
+				make_unique<Tag>(
+					line.substr(1, line.find('>') - 1),
+					stoi(line.substr(line.find('=') + 1))
+				)
 			);
-			st.push(move(cur));
 		}
 		else {
 			if (st.size() == 1) {
