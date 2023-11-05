@@ -15,6 +15,6 @@ private:
 	Tag* parent;
 public:
 	QueueTag(Tag* tag, Tag* parent) : node(tag), parent(parent) {}
-	Tag* tag() { return this->node; };
-	Tag* Parent() { return this->parent; }
+	Tag* tag() const { return this->node; };
+	Tag* Parent() const { return this->parent; }
 };

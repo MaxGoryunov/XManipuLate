@@ -15,4 +15,6 @@ public:
 	Tag* operator ->() { return this->tags.front().tag(); }
 	Iterator operator ++();
 	Iterator operator ++(int i);
+	bool operator == (Iterator const& other);
+	bool operator != (Iterator const& other);
 };
