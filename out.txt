@@ -1,14 +1,14 @@
-<head> 15
-  <childone> 10
+<head> value=15
+  <childone> value=10
   </childone>
-  <childtwo> 5
-    <chtwoch> 60
+  <childtwo> value=5
+    <chtwoch> value=60
     </chtwoch>
-    <chtwochtwo> 78
+    <chtwochtwo> value=78
     </chtwochtwo>
   </childtwo>
-  <childthree> 20
-    <grandch> 35
+  <childthree> value=20
+    <grandch> value=35
     </grandch>
   </childthree>
 </head>
