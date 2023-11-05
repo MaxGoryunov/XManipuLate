@@ -16,9 +16,10 @@ void Tag::multipush(vup<Tag> arrived) {
 }
 
 string Tag::asText(int depth) {
-	string text = string(depth, ' ') + "<" + this->name + "> " + to_string(this->data) + "\n";
+	string offset = string(depth, ' ');
+	string text = offset + "<" + this->name + "> " + to_string(this->data) + "\n";
 	for (auto const& child : this->children) {
 		text += child->asText(depth + Tag::DEPTH_SHIFT);
 	}
-	return text + "</" + this->name + ">\n";
+	return text + offset + "</" + this->name + ">\n";
 }

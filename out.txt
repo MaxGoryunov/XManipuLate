@@ -1,14 +1,14 @@
 <head> 15
   <childone> 10
-</childone>
+  </childone>
   <childtwo> 5
     <chtwoch> 60
-</chtwoch>
+    </chtwoch>
     <chtwochtwo> 78
-</chtwochtwo>
-</childtwo>
+    </chtwochtwo>
+  </childtwo>
   <childthree> 20
     <grandch> 35
-</grandch>
-</childthree>
+    </grandch>
+  </childthree>
 </head>
