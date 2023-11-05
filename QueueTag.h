@@ -10,10 +10,10 @@
 */
 class QueueTag {
 private:
-	Tag* tag;
+	Tag* node;
 	Tag* parent;
 public:
-	QueueTag(Tag* tag, Tag* parent) : tag(tag), parent(parent) {}
-	Tag* Tag() { return this->tag; }
+	QueueTag(Tag* tag, Tag* parent) : node(tag), parent(parent) {}
+	Tag* tag() { return this->node; };
 	Tag* Parent() { return this->parent; }
 };
