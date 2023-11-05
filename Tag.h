@@ -3,11 +3,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include <memory>
 
 class Tag {
 private:
-	static int const DEPTH_SHIFT = 5;
+	static int const DEPTH_SHIFT = 2;
 	template<class T>
 	using up = std::unique_ptr<T>;
 	template<class T>
@@ -20,5 +21,4 @@ public:
 	void push(up<Tag> child) { this->children.push_back(std::move(child)); }
 	void multipush(vup<Tag> arrived);
 	std::string asText(int depth = 0);
-	void print(int depth = 0);
 };
