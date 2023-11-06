@@ -46,6 +46,7 @@ void Tag::eraseAndPassChildren(Tag* parent) {
 			this->passChildrenToParent(parent);
 			parent->children[i].reset();
 			parent->children.erase(parent->children.begin() + i);
+			return;
 		}
 	}
 	throw runtime_error("Given parent is not an actual parent");
