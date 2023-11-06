@@ -1,5 +1,8 @@
 # XManipuLate
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/MaxGoryunov/XManipuLate/blob/master/LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/maxgoryunov/xmanipulate/badge/master)](https://www.codefactor.io/repository/github/maxgoryunov/xmanipulate/overview/master)
+
 XManipuLate is a simple library in C++ for working with XML resources.
 
 ## XmlResource
