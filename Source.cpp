@@ -17,5 +17,9 @@ int main() {
 	Iterator added = xml->add("grandchtwo", 140, it1);
 	std::cout << "After add: " << std::endl;
 	std::cout << (*it1).tag()->asText() << std::endl;
+	Iterator empty = xml->find("notatag");
+	if ((*empty).tag() == nullptr) {
+		std::cout << "Found nothing in the tree" << std::endl;
+	}
 	return 0;
 }

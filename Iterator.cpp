@@ -14,8 +14,8 @@ Iterator Iterator::operator++(int i) {
 }
 
 bool Iterator::operator==(Iterator const& other) {
-	return this->tags.front().tag() == other.tags.front().tag()
-		&& this->tags.front().Parent() == other.tags.front().Parent();
+	return this->current().tag() == other.current().tag()
+		&& this->current().Parent() == other.current().Parent();
 }
 
 bool Iterator::operator!=(Iterator const& other) {

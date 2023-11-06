@@ -17,6 +17,6 @@ public:
 	void load(std::ifstream& file);
 	void save(std::string& file);
 	void save(std::ofstream& file);
-	Iterator begin() { return Iterator(QueueTag(head->begin(), nullptr)); }
-	Iterator end() { return Iterator(QueueTag(head->end(), nullptr)); }
+	Iterator begin() { return Iterator(QueueTag(head->begin(), nullptr), this->head->end()); }
+	Iterator end() { return Iterator(QueueTag(head->end(), nullptr), this->head->end()); }
 };
