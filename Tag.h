@@ -27,6 +27,5 @@ public:
 	Tag* end() { return nullptr; }
 	bool matches(std::string const& name) { return this->name == name; }
 	bool matches(int data) { return this->data == data; }
-	std::string Name() { return this->name; }
 	void eraseAndPassChildren(Tag* parent);
 };

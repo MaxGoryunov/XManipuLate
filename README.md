@@ -49,3 +49,24 @@ xml->erase(it);
 exception is thrown during any of the above operations, the tree will be left 
 in a valid state.
 
+## XmlTree
+
+`XmlTree` can be loaded, saved and printed just like `XmlResource`. On top of
+that, it can also be traversed using an `Iterator`. For example, to find a tag
+by its name:
+```c++
+unique_ptr<XmlTree> tree = make_unique<XmlTree>();
+for (Iterator it = tree->begin(), end = tree->end(); it != end; ++it) {
+    if ((*it).tag()->matches(name)) {
+        return it;
+    }
+}
+```
+
+## Tag
+
+A tag is the smallest element of `XmlResource`. It can be converted to text:
+```c++
+unique_ptr<Tag> tag = make_unique<Tag>("tagname", 42);
+cout << tag->asText() << endl;
+```
