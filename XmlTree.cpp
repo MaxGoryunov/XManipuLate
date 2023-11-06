@@ -11,14 +11,6 @@ using std::stack;
 using std::move;
 using std::make_unique;
 
-void XmlTree::print(int depth) {
-	cout << this->head->asText(depth) << endl;
-}
-
-void XmlTree::save(ofstream& file) {
-	file << this->head->asText();
-}
-
 void XmlTree::save(string& file) {
 	ofstream out(file);
 	this->save(out);
