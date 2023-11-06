@@ -14,5 +14,8 @@ int main() {
 	Iterator it1 = xml->find(20);
 	std::cout << "Found by value: " << std::endl;
 	std::cout << (*it1).tag()->asText() << std::endl;
+	Iterator added = xml->add("grandchtwo", 140, it1);
+	std::cout << "After add: " << std::endl;
+	std::cout << (*it1).tag()->asText() << std::endl;
 	return 0;
 }

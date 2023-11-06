@@ -40,3 +40,9 @@ Iterator XmlResource::find(int data) {
 	}
 	return Iterator(QueueTag(nullptr, nullptr));
 }
+
+Iterator XmlResource::add(string const& name, int data, Iterator& pos) {
+	Tag* added = new Tag(name, data);
+	(*pos).tag()->push(unique_ptr<Tag>(added));
+	return Iterator(QueueTag(added, nullptr));
+}

@@ -16,4 +16,5 @@ public:
 	void print();
 	Iterator find(std::string const& name);
 	Iterator find(int data);
+	Iterator add(std::string const& name, int data, Iterator& pos);
 };
