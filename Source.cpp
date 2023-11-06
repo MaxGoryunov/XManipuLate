@@ -8,5 +8,8 @@ int main() {
 	xml->print();
 	std::string out("out.txt");
 	xml->save(out);
+	Iterator it = xml->find("chtwochtwo");
+	std::cout << "It found: " << std::endl;
+	std::cout << (*it).tag()->asText() << std::endl;
 	return 0;
 }

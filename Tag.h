@@ -22,4 +22,8 @@ public:
 	void multipush(std::vector<std::unique_ptr<Tag>> arrived);
 	std::string asText(int depth = 0);
 	void pushChildrenToQueue(std::queue<QueueTag>& tags);
+	Tag* begin() { return this; }
+	Tag* end() { return nullptr; }
+	bool matches(std::string const& name) { return this->name == name; }
+	std::string Name() { return this->name; }
 };

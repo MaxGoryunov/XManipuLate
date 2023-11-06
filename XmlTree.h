@@ -4,6 +4,7 @@
 #include <memory>
 #include <fstream>
 #include "Tag.h"
+#include "Iterator.h"
 
 class XmlTree {
 private:
@@ -16,4 +17,6 @@ public:
 	void load(std::ifstream& file);
 	void save(std::string& file);
 	void save(std::ofstream& file);
+	Iterator begin() { return Iterator(QueueTag(head->begin(), nullptr)); }
+	Iterator end() { return Iterator(QueueTag(head->end(), nullptr)); }
 };

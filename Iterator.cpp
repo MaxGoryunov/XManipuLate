@@ -19,5 +19,6 @@ bool Iterator::operator==(Iterator const& other) {
 }
 
 bool Iterator::operator!=(Iterator const& other) {
-	return *this == other;
+	//bool eq = (*this == other);
+	return !(*this == other);
 }

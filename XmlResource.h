@@ -1,6 +1,7 @@
 #pragma once
 
 #include "XmlTree.h"
+#include "Iterator.h"
 
 class XmlResource {
 private:
@@ -13,4 +14,5 @@ public:
 	void save(std::string& path);
 	void load(std::string& path);
 	void print();
+	Iterator find(std::string const& name);
 };

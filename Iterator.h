@@ -11,8 +11,8 @@ public:
 	Iterator(QueueTag const& tag) {
 		this->tags.push(tag);
 	}
-	Tag* operator *() { return this->tags.front().tag(); }
-	Tag* operator ->() { return this->tags.front().tag(); }
+	QueueTag operator *() { return this->tags.front(); }
+	QueueTag operator ->() { return this->tags.front(); }
 	Iterator operator ++();
 	Iterator operator ++(int i);
 	bool operator == (Iterator const& other);
