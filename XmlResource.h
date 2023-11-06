@@ -15,4 +15,5 @@ public:
 	void load(std::string& path);
 	void print();
 	Iterator find(std::string const& name);
+	Iterator find(int data);
 };

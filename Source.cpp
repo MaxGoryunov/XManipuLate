@@ -9,7 +9,10 @@ int main() {
 	std::string out("out.txt");
 	xml->save(out);
 	Iterator it = xml->find("chtwochtwo");
-	std::cout << "It found: " << std::endl;
+	std::cout << "Found by name: " << std::endl;
 	std::cout << (*it).tag()->asText() << std::endl;
+	Iterator it1 = xml->find(20);
+	std::cout << "Found by value: " << std::endl;
+	std::cout << (*it1).tag()->asText() << std::endl;
 	return 0;
 }
