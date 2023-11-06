@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include "XmlResource.h"
 
 int main() {
@@ -23,6 +24,32 @@ int main() {
 	}
 	Iterator third = xml->find("childthree");
 	if (xml->erase(third)) {
+		std::cout << "Erased <childthree> " << std::endl;
+		xml->print();
+	}
+	try {
+		std::string bad("badinput.txt");
+		xml->load(bad);
+	}
+	catch (std::runtime_error const& error) {
+		std::cerr << error.what() << std::endl;
+		std::cout << "Tree after incorrect parsing of bad input: " << std::endl;
+		xml->print();
+	}
+	try {
+		std::cout << "Trying to erase <chtwochtwo> and pass its children to <head>" << std::endl;
+		Iterator misplaced(
+			QueueTag(
+				(*(xml->find("chtwochtwo"))).tag(),
+				(*(xml->find("head"))).tag()
+			),
+			(*empty).tag()
+		);
+		xml->erase(misplaced);
+	}
+	catch (std::runtime_error const& error) {
+		std::cerr << error.what() << std::endl;
+		std::cout << "Tree after trying to pass children to a non-parent: " << std::endl;
 		xml->print();
 	}
 	return 0;

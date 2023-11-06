@@ -1,6 +1,7 @@
 #include "XmlTree.h"
 #include <iostream>
 #include <stack>
+#include <stdexcept>
 
 using std::cout;
 using std::endl;
@@ -9,6 +10,7 @@ using std::ifstream;
 using std::ofstream;
 using std::stack;
 using std::move;
+using std::runtime_error;
 using std::make_unique;
 
 void XmlTree::save(string& file) {
@@ -35,6 +37,9 @@ void XmlTree::load(ifstream& file) {
 			}
 			up<Tag> child = move(st.top());
 			st.pop();
+			if (!child->matches(line.substr(start + 2, line.find('>') - 2 - start))) {
+				throw runtime_error("Invalid file contents, check file for unpaired tags");
+			}
 			st.top()->push(move(child));
 		}
 	}
