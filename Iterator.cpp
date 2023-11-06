@@ -17,8 +17,3 @@ bool Iterator::operator==(Iterator const& other) {
 	return this->current().tag() == other.current().tag()
 		&& this->current().Parent() == other.current().Parent();
 }
-
-bool Iterator::operator!=(Iterator const& other) {
-	//bool eq = (*this == other);
-	return !(*this == other);
-}

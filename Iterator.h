@@ -17,5 +17,5 @@ public:
 	Iterator operator ++();
 	Iterator operator ++(int i);
 	bool operator == (Iterator const& other);
-	bool operator != (Iterator const& other);
+	bool operator != (Iterator const& other) { return !(*this == other); }
 };

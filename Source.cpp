@@ -21,5 +21,9 @@ int main() {
 	if ((*empty).tag() == nullptr) {
 		std::cout << "Found nothing in the tree" << std::endl;
 	}
+	Iterator third = xml->find("childthree");
+	if (xml->erase(third)) {
+		xml->print();
+	}
 	return 0;
 }

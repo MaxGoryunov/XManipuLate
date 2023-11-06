@@ -10,18 +10,6 @@ unique_ptr<XmlResource> XmlResource::create() {
 	return unique_ptr<XmlResource>(new XmlResource());
 }
 
-void XmlResource::save(string& path) {
-	this->tree->save(path);
-}
-
-void XmlResource::load(string& path) {
-	this->tree->load(path);
-}
-
-void XmlResource::print() {
-	this->tree->print();
-}
-
 Iterator XmlResource::find(std::string const& name) {
 	Iterator end = this->tree->end();
 	for (Iterator it = this->tree->begin(); it != end; ++it) {
@@ -47,4 +35,13 @@ Iterator XmlResource::add(string const& name, int data, Iterator& pos) {
 	Tag* added = new Tag(name, data);
 	(*pos).tag()->push(unique_ptr<Tag>(added));
 	return Iterator(QueueTag(added, nullptr), (*(this->tree->end())).tag());
+}
+
+bool XmlResource::erase(Iterator& pos) {
+	QueueTag qt = (*pos);
+	if (qt.tag() == nullptr || qt.Parent() == nullptr) {
+		return false;
+	}
+	qt.tag()->eraseAndPassChildren(qt.Parent());
+	return true;
 }

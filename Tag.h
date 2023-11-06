@@ -16,6 +16,7 @@ private:
 	std::string name;
 	int data;
 	std::vector<std::unique_ptr<Tag>> children;
+	void passChildrenToParent(Tag* parent);
 public:
 	Tag(std::string const& name, int data) : name(name), data(data) {};
 	void push(std::unique_ptr<Tag> child) { this->children.push_back(std::move(child)); }
@@ -27,4 +28,5 @@ public:
 	bool matches(std::string const& name) { return this->name == name; }
 	bool matches(int data) { return this->data == data; }
 	std::string Name() { return this->name; }
+	void eraseAndPassChildren(Tag* parent);
 };
